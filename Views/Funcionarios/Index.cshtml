@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProjetoAquasis.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Funcionario";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.posição)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit">Novo funcionario</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.posição)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.FuncionId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuncionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
